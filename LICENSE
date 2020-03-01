@@ -1,0 +1,18 @@
+Hoermann License
+================
+The software is copyright and you are explicitly granted a license which
+gives you, the user of the software, legal permission to copy and/or
+distribute the software. In addition, you are allowed to modify the software
+without restriction as long as the only reason for the modification is to place
+the top-level Java package in which the source code files of the software are
+located directly or in several sub-packages as a sub-package relative to a
+package structure that you have defined. Other modifications are allowed but are
+due to the following restrictions: (1) Every file that is part of the source
+code of the software and the content of which you have changed beyond just for
+the purpose mentioned above must contain the character string "@author x",
+where x stands for a character string that is different from the character
+string "Beat Hoermann". (2) Changes to the character string "@author Beat
+Hoermann" in a source code file require the name of that file to be changed.
+(3) You are not allowed to remove or change the header in a source code file
+that contains the copyright and license notice. (4) Any new source code file
+must contain this header.

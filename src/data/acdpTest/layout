@@ -1,0 +1,39 @@
+name = PersonDB
+version = 1.5
+consistencyNumber = 0
+cipherFactoryClassName = example.PersonDB$CipherFactory
+cipherChallenge = 29jxv5pqc56i69ys
+forceWriteCommit = off
+recFile = rec
+tables
+	Person
+		columns[]
+			.
+				name = Name
+				typeDesc = sno4
+			.
+				name = Vorname
+				typeDesc = sno4
+			.
+				name = ID
+				typeDesc = BigInteger!i20v
+				typeFactoryClassName = example.BigIntegerType
+			.
+				name = Hat_Kinder
+				typeDesc = a!i1
+			.
+				name = Anzahl_Kinder
+				typeDesc = bni1
+			.
+				name = Kinder
+				typeDesc = yo20
+				refdTable = Person
+			.
+				name = Bemerkung
+				typeDesc = sno2
+		store
+			nobsRowRef = 8
+			nobsOutrowPtr = 8
+			nobsRefCount = 8
+			flDataFile = Person_fld
+			vlDataFile = Person_vld
