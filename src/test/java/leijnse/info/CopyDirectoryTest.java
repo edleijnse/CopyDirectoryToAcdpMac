@@ -3,6 +3,10 @@ package leijnse.info;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.Duration;
 import java.time.Instant;
 
@@ -26,5 +30,27 @@ public class CopyDirectoryTest {
         long timeElapsed = Duration.between(start, finish).toMillis();
         System.out.println("Duration (millisec): " + timeElapsed );
 
+    }
+
+    @Test
+    public void addVisionTagsToFilesTest() throws IOException {
+        Instant start = Instant.now();
+
+        String mySubscriptionKey = new String(Files.readAllBytes(Paths.get("/Users/edleijnse/OneDrive/Finanzen/Lizensen/Microsoft/keys/subscriptionKey1")));
+
+        testee.setSubscriptionKey(mySubscriptionKey);
+        // testee.addVisionTagsToFiles("src/data/copyDirectoryTest/acdpTest/AesthetikDesZerfalls");
+        // testee.addVisionTagsToFiles("/Volumes/MyDrive01/acdp/allAlbums/PICZ/Photowalk Escher-Wyssplatz", "/Volumes/MyDrive01/temp" +
+        //        "");
+
+        Instant finish = Instant.now();
+        long timeElapsed = Duration.between(start, finish).toMillis();
+        System.out.println("Duration (millisec): " + timeElapsed );
+
+    }
+    @Test
+    public void escapeSpacesTest() {
+        String myOutString = testee.escapeSpaces("/Volumes/MyDrive01/acdp/allAlbums/PICZ/Photowalk Escher-Wyssplatz/DU5A4635.jpg");
+        System.out.println(myOutString);
     }
 }

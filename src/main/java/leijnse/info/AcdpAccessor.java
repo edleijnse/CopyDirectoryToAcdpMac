@@ -253,7 +253,7 @@ public class AcdpAccessor {
                 .forEach(source -> copy(source, dest.resolve(src.relativize(source))));
     }
 
-    private void copy(Path source, Path dest) {
+    public void copy(Path source, Path dest) {
         try {
             Files.copy(source, dest, REPLACE_EXISTING);
         } catch (Exception e) {

@@ -39,6 +39,12 @@
       <artifactId>commons-lang3</artifactId>
       <version>3.7</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.5.6</version>
+    </dependency>
 
     <dependency>
       <groupId>com.thoughtworks.xstream</groupId>
@@ -103,6 +109,12 @@
       <version>${junit.jupiter.version}</version>
       <scope>test</scope>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.json/json -->
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20180130</version>
+    </dependency>
 
   </dependencies>
 
@@ -138,6 +150,7 @@
           <includePluginDependencies>false</includePluginDependencies>
         </configuration>
       </plugin>
+
 
     </plugins>
   </build>
