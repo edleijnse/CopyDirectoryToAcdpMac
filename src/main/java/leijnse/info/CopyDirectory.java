@@ -72,7 +72,7 @@ public class CopyDirectory {
                             }
                             String myIptcKeywords = "";
                             if (pictureMetaData.getIPTC_KEYWORDS().isPresent()){
-                                myIptcKeywords = pictureMetaData.getIPTC_KEYWORDS().get();
+                                myIptcKeywords = pictureMetaData.getIPTC_KEYWORDS().get().replaceAll(" ","");
                             }
 
                             String sourceFileAbsolutePath = "";
@@ -82,6 +82,7 @@ public class CopyDirectory {
                             try {
                                 ii[0]++;
                                 System.out.println("absolute: " + sourceFileAbsolutePath + ", parent: " + sourceParentName  +", filename: " + sourceFileName);
+                                System.out.println("keywords: " + myIptcKeywords);
                                 acdpAccessor.writeRowToImageTable(layOut,sourceParentName,sourceFileName, BigInteger.valueOf(ii[0]),myIptcKeywords);
                             } catch (Exception e) {
                                 e.printStackTrace();

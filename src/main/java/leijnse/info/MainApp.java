@@ -23,7 +23,8 @@ public class MainApp {
         // copyDirectory.copyFilesToACDP("/media/psf/MyDrive01/BilderImport/Annalis/Bilder nachbearbeitet", "/media/psf/MyDrive01/BilderImport/Annalis/BilderExportBearbeitet3");
         // copyDirectory.copyFilesToACDP("/media/psf/MyDrive01/Annalis Bilder/BilderExportBearbeitet/Annalis", "/media/psf/MyDrive01/acdp/acdpImage/layout");
 
-        copyDirectory.copyFilesDirectoryNameToACDP("/Volumes/MyDrive01/acdp/allAlbums", "/Volumes/MyDrive01/acdp/acdpImageAlbums/layout");
+        // copyDirectory.copyFilesDirectoryNameToACDP("/Volumes/MyDrive01/acdp/allAlbums", "/Volumes/MyDrive01/acdp/acdpImageAlbums/layout");
+        copyDirectory.copyFilesToACDP("/Volumes/MyDrive01/acdp/allAlbums/PICZ/Amber 20180815", "/Volumes/MyDrive01/acdp/acdpImageAlbums/layout");
         AcdpAccessor acdpAccessor = new AcdpAccessor();
         // acdpAccessor.readAllRowsFromImageTable("/media/psf/MyDrive01/acdp/acdpImageDirectories/layout");
         // List<ImageRow> imageWithSomeKeywords = acdpAccessor.selectFromImageTable(false,"/media/psf/MyDrive01/acdp/acdpImageDirectories/layout", "-","-", BigInteger.valueOf(0),"Hochzeit");
