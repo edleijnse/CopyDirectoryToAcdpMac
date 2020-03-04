@@ -129,7 +129,7 @@ import acdp.internal.FileIOException;
  * <p>
  * Sometimes a client needs to know the content of the FL data blocks.
  * For this, a client implements the {@link Presenter} interface and passes
- * an instance to the {@link Spec#run(FLFileAccommodate.Presenter, WRStore)}
+ * an instance to the {@link Spec#run(Presenter, WRStore)}
  * method.
  * Thus, invoking
  * 
@@ -148,7 +148,7 @@ import acdp.internal.FileIOException;
 final class FLFileAccommodate {
 	/**
 	 * Clients implementing a presenter and passing an instance of a presenter
-	 * to the {@link Spec#run(FLFileAccommodate.Presenter, WRStore)} method
+	 * to the {@link Spec#run(Presenter, WRStore)} method
 	 * receive the current FL data block.
 	 * 
 	 * @author Beat Hoermann

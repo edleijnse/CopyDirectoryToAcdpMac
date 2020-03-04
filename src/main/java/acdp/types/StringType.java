@@ -14,9 +14,9 @@ import java.nio.charset.Charset;
  * that the {@code null} value is forbidden.
  * <p>
  * Besides the property that decides if the {@code null} value is allowed or
- * not, the String type has three additional properties: The {@linkplain
- * Type.Scheme storage scheme}, the <em>limit</em> and the <em>charset</em>.
- * All have an influence on the maximum number of characters in a String value
+ * not, the string type has three additional properties: The {@linkplain
+ * Scheme storage scheme}, the <em>limit</em> and the <em>charset</em>.
+ * All have an influence on the maximum number of characters in a string value
  * as follows:
  * 
  * <h1>Inrow Storage Scheme</h1>

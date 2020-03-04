@@ -380,7 +380,7 @@ public interface Table extends Iterable<Row> {
 	 * 	<li>The number of values is equal to the number of columns of the
 	 *        table.</li>
 	 *    <li>If v<sub>i</sub> denotes the i-th value then v<sub>i</sub> is
-	 *        {@linkplain acdp.types.Type#isCompatible compatible}
+	 *        {@linkplain Type#isCompatible compatible}
 	 *        with the type of the i-th column of this table.</li>
 	 * </ul>
 	 * <p>
@@ -479,7 +479,7 @@ public interface Table extends Iterable<Row> {
 	 * Updates the values of the specified columns of the referenced row with the
 	 * specified new values.
 	 * <p>
-	 * The new values must be {@linkplain acdp.types.Type#isCompatible
+	 * The new values must be {@linkplain Type#isCompatible
 	 * compatible} with the type of their columns.
 	 * This method does not explicitly check this precondition.
 	 * In any case, if this precondition is not satisfied then this method
@@ -632,7 +632,7 @@ public interface Table extends Iterable<Row> {
 	 * @throws IOFailureException If an I/O error occurs.
 	 */
 	<T> void updateAllSupplyValues(Column<T> column,
-														ValueSupplier<T> valueSupplier) throws 
+                                   ValueSupplier<T> valueSupplier) throws
 						UnsupportedOperationException, NullPointerException,
 						IllegalArgumentException, ImplementationRestrictionException,
 						MaximumException, CryptoException, ShutdownException,
@@ -690,7 +690,7 @@ public interface Table extends Iterable<Row> {
 	 * @throws IOFailureException If an I/O error occurs.
 	 */
 	<T> void updateAllChangeValues(Column<T> column,
-														ValueChanger<T> valueChanger) throws 
+                                   ValueChanger<T> valueChanger) throws
 						UnsupportedOperationException, NullPointerException,
 						IllegalArgumentException, ImplementationRestrictionException,
 						MaximumException, CryptoException, ShutdownException,

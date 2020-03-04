@@ -41,7 +41,7 @@ import acdp.types.Type.Scheme;
  * Defines a converter that converts a value of a given column type to its row
  * data.
  * <p>
- * By invoking the {@link #create(WRStore.WRColInfo)} method, a {@link WRStore}
+ * By invoking the {@link #create(WRColInfo)} method, a {@link WRStore}
  * creates for each column of the table an {@link IObjectToBytes} instance which
  * in turn is used by the insert, update operations or by a writing maintenance
  * operation to persist any values passed to them.
@@ -142,7 +142,7 @@ final class ObjectToBytes {
 		 *         outrow storage scheme or is an INROW A[OUTROW ST].
 		 */
 		long convert(Object val, long bitmap, Bag bag0, IUnit unit,
-														Bag bag) throws NullPointerException,
+                     Bag bag) throws NullPointerException,
 								IllegalArgumentException, MaximumException,
 								CryptoException, UnitBrokenException, FileIOException;
 	}

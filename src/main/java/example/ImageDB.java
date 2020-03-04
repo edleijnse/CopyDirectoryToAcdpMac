@@ -70,7 +70,7 @@ public final class ImageDB extends CustomDatabase {
 	public final ImageTable imageTable = new ImageTable();
 
 	public ImageDB(Path mainFile, int opMode, boolean writeProtect,
-            int consistencyNumber) {
+                   int consistencyNumber) {
 		open(mainFile, opMode, writeProtect, consistencyNumber, imageTable);
 	}
 }

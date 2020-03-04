@@ -7,13 +7,11 @@
 package example;
 
 import acdp.Column;
-import acdp.Ref;
 import acdp.Row;
 import acdp.design.CL;
 import acdp.design.CustomTable;
 import acdp.tools.Setup.Setup_Column;
 import acdp.tools.Setup.Setup_Table;
-import acdp.types.Type.Scheme;
 
 import java.math.BigInteger;
 import java.util.stream.Stream;
@@ -27,13 +25,13 @@ import java.util.stream.Stream;
 public final class ImageTable extends CustomTable {
 	// Must be public if Setup is used.
 	@Setup_Column("Directory")
-	public final Column<String> DIRECTORY = CL.typeString();
+	public final Column<String> DIRECTORY = CL.ofString();
 	@Setup_Column("File")
-	public final Column<String> FILE = CL.typeString();
+	public final Column<String> FILE = CL.ofString();
 	@Setup_Column("ID")
-	public final Column<BigInteger> ID = CL.create(new BigIntegerType(false, 20));
+	public final Column<BigInteger> ID = CL.create(new BigIntegerType(20));
 	@Setup_Column("IptcKeywords")
-	public final Column<String> IPTCKEYWORDS = CL.typeString();
+	public final Column<String> IPTCKEYWORDS = CL.ofString();
 
 	/**
 	 * Do not create instances of this class!

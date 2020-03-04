@@ -5,10 +5,8 @@
  * This code is licensed under "Hoermann License"
  */
 /**
- * Contains the core interfaces needed to operate a database, including the
- * {@link Database} interface which plays an overall central role.
- * Reading the description of the {@code Database}, {@link Table} and {@link
- * Ref} classes, and following the links therein, results in a top-down
- * understanding of ACDP.
+ * Contains the core interfaces needed to operate a database.
+ * Reading the description of the {@link Database}, {@link Table} and {@link
+ * Ref} interfaces gives you a top-down understanding of ACDP.
  */
 package acdp;

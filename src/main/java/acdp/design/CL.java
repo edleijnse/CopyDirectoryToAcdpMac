@@ -10,6 +10,8 @@ import java.nio.charset.Charset;
 
 import acdp.Column;
 import acdp.Ref;
+import acdp.design.ST.Nulls;
+import acdp.design.ST.OutrowStringLength;
 import acdp.internal.Column_;
 import acdp.internal.types.TypeFactory;
 import acdp.types.*;
@@ -24,135 +26,122 @@ public final class CL {
 	/**
 	 * Creates a new column of type {@linkplain BooleanType Boolean}.
 	 * It is safe to cast {@code column.info().type()} of the returned {@code
-	 * column} to the {@link BooleanType} interface.
+	 * column} to the {@link BooleanType} interface or to the {@link SimpleType}
+	 * class.
 	 * 
-	 * @param  nullable Must be set to {@code true} if the column allows for
-	 *         {@code null} values, {@code false} if not.
-	 *         Typically, values in columns forbidding the {@code null} value
-	 *         can be persisted more efficiently than values in columns allowing
-	 *         the {@code null} value.
+	 * @param  nulls Must be set to {@code Nulls.NULLABLE} if the type allows the
+	 *         {@code null} value, {@code Nulls.NO_NULL} if not.
 	 * 
 	 * @return The created column of type Boolean.
 	 */
-	public static final Column<Boolean> typeBoolean(boolean nullable){
-		return new Column_<>(TypeFactory.fetchBoolean(nullable));
+	public static final Column<Boolean> ofBoolean(Nulls nulls){
+		return new Column_<>(TypeFactory.fetchBoolean(nulls.value()));
 	}
 	
 	/**
 	 * Creates a new column of type {@linkplain ByteType Byte}.
 	 * It is safe to cast {@code column.info().type()} of the returned {@code
-	 * column} to the {@link ByteType} interface.
+	 * column} to the {@link ByteType} interface or to the {@link SimpleType}
+	 * class.
 	 * 
-	 * @param  nullable Must be set to {@code true} if the column allows for
-	 *         {@code null} values, {@code false} if not.
-	 *         Typically, values in columns forbidding the {@code null} value
-	 *         can be persisted more efficiently than values in columns allowing
-	 *         the {@code null} value.
+	 * @param  nulls Must be set to {@code Nulls.NULLABLE} if the type allows the
+	 *         {@code null} value, {@code Nulls.NO_NULL} if not.
 	 * 
 	 * @return The created column of type Byte.
 	 */
-	public static final Column<Byte> typeByte(boolean nullable) {
-		return new Column_<>(TypeFactory.fetchByte(nullable));
+	public static final Column<Byte> ofByte(Nulls nulls) {
+		return new Column_<>(TypeFactory.fetchByte(nulls.value()));
 	}
 	
 	/**
 	 * Creates a new column of type {@linkplain ShortType Short}.
 	 * It is safe to cast {@code column.getInfo().type()} of the returned {@code
-	 * column} to the {@link ShortType} interface.
+	 * column} to the {@link ShortType} interface or to the {@link SimpleType}
+	 * class.
 	 * 
-	 * @param  nullable Must be set to {@code true} if the column allows for
-	 *         {@code null} values, {@code false} if not.
-	 *         Typically, values in columns forbidding the {@code null} value
-	 *         can be persisted more efficiently than values in columns allowing
-	 *         the {@code null} value.
+	 * @param  nulls Must be set to {@code Nulls.NULLABLE} if the type allows the
+	 *         {@code null} value, {@code Nulls.NO_NULL} if not.
 	 * 
 	 * @return The created column of type Short.
 	 */
-	public static final Column<Short> typeShort(boolean nullable) {
-		return new Column_<>(TypeFactory.fetchShort(nullable));
+	public static final Column<Short> ofShort(Nulls nulls) {
+		return new Column_<>(TypeFactory.fetchShort(nulls.value()));
 	}
 	
 	/**
 	 * Creates a new column of type {@linkplain IntegerType Integer}.
 	 * It is safe to cast {@code column.info().type()} of the returned {@code
-	 * column} to the {@link IntegerType} interface.
+	 * column} to the {@link IntegerType} interface or to the {@link SimpleType}
+	 * class.
 	 * 
-	 * @param  nullable Must be set to {@code true} if the column allows for
-	 *         {@code null} values, {@code false} if not.
-	 *         Typically, values in columns forbidding the {@code null} value
-	 *         can be persisted more efficiently than values in columns allowing
-	 *         the {@code null} value.
+	 * @param  nulls Must be set to {@code Nulls.NULLABLE} if the type allows the
+	 *         {@code null} value, {@code Nulls.NO_NULL} if not.
 	 * 
 	 * @return The created column of type Integer.
 	 */
-	public static final Column<Integer> typeInteger(boolean nullable){
-		return new Column_<>(TypeFactory.fetchInteger(nullable));
+	public static final Column<Integer> ofInteger(Nulls nulls){
+		return new Column_<>(TypeFactory.fetchInteger(nulls.value()));
 	}
 	
 	/**
 	 * Creates a new column of type {@linkplain LongType Long}.
 	 * It is safe to cast {@code column.info().type()} of the returned {@code
-	 * column} to the {@link LongType} interface.
+	 * column} to the {@link LongType} interface or to the {@link SimpleType}
+	 * class.
 	 * 
-	 * @param  nullable Must be set to {@code true} if the column allows for
-	 *         {@code null} values, {@code false} if not.
-	 *         Typically, values in columns forbidding the {@code null} value
-	 *         can be persisted more efficiently than values in columns allowing
-	 *         the {@code null} value.
+	 * @param  nulls Must be set to {@code Nulls.NULLABLE} if the type allows the
+	 *         {@code null} value, {@code Nulls.NO_NULL} if not.
 	 * 
 	 * @return The created column of type Long.
 	 */
-	public static final Column<Long> typeLong(boolean nullable) {
-		return new Column_<>(TypeFactory.fetchLong(nullable));
+	public static final Column<Long> ofLong(Nulls nulls) {
+		return new Column_<>(TypeFactory.fetchLong(nulls.value()));
 	}
 	
 	/**
 	 * Creates a new column of type {@linkplain FloatType Float}.
 	 * It is safe to cast {@code column.info().type()} of the returned {@code
-	 * column} to the {@link FloatType} interface.
+	 * column} to the {@link FloatType} interface or to the {@link SimpleType}
+	 * class.
 	 * 
-	 * @param  nullable Must be set to {@code true} if the column allows for
-	 *         {@code null} values, {@code false} if not.
-	 *         Typically, values in columns forbidding the {@code null} value
-	 *         can be persisted more efficiently than values in columns allowing
-	 *         the {@code null} value.
+	 * @param  nulls Must be set to {@code Nulls.NULLABLE} if the type allows the
+	 *         {@code null} value, {@code Nulls.NO_NULL} if not.
 	 * 
 	 * @return The created column of type Float.
 	 */
-	public static final Column<Float> typeFloat(boolean nullable) {
-		return new Column_<>(TypeFactory.fetchFloat(nullable));
+	public static final Column<Float> ofFloat(Nulls nulls) {
+		return new Column_<>(TypeFactory.fetchFloat(nulls.value()));
 	}
 
 	/**
 	 * Creates a new column of type {@linkplain DoubleType Double}.
 	 * It is safe to cast {@code column.info().type()} of the returned {@code
-	 * column} to the {@link DoubleType} interface.
+	 * column} to the {@link DoubleType} interface or to the {@link SimpleType}
+	 * class.
 	 * 
-	 * @param  nullable Must be set to {@code true} if the column allows for
-	 *         {@code null} values, {@code false} if not.
-	 *         Typically, values in columns forbidding the {@code null} value
-	 *         can be persisted more efficiently than values in columns allowing
-	 *         the {@code null} value.
+	 * @param  nulls Must be set to {@code Nulls.NULLABLE} if the type allows the
+	 *         {@code null} value, {@code Nulls.NO_NULL} if not.
 	 * 
 	 * @return The created column of type Double.
 	 */
-	public static final Column<Double> typeDouble(boolean nullable) {
-		return new Column_<>(TypeFactory.fetchDouble(nullable));
+	public static final Column<Double> ofDouble(Nulls nulls) {
+		return new Column_<>(TypeFactory.fetchDouble(nulls.value()));
 	}
 	
 	/**
 	 * Creates a new column of type "classic Java" {@linkplain StringType
 	 * String}.
 	 * It is safe to cast {@code column.info().type()} of the returned {@code
-	 * column} to the {@link StringType} interface.
+	 * column} to the {@link StringType} interface or to the {@link SimpleType}
+	 * class.
 	 * <p>
 	 * Invoking this method has the same effect as invoking {@code
-	 * typeString(true, 4)}.
+	 * ofString(Nulls.NULLABLE, OutrowStringLength.GIANT)}.
 	 * 
 	 * @return The created column of type String.
 	 */
-	public static final Column<String> typeString() {
-		return typeString(true, 4);
+	public static final Column<String> ofString() {
+		return ofString(Nulls.NULLABLE, OutrowStringLength.GIANT);
 	}
 	
 	/**
@@ -160,68 +149,76 @@ public final class CL {
 	 * {@linkplain Scheme#OUTROW outrow storage scheme} and applying the "UTF-8"
 	 * charset for any byte conversions.
 	 * It is safe to cast {@code column.info().type()} of the returned {@code
-	 * column} to the {@link StringType} interface.
+	 * column} to the {@link StringType} interface or to the {@link SimpleType}
+	 * class.
 	 * <p>
 	 * Invoking this method has the same effect as invoking {@code
-	 * typeString(Charset.forName("UTF-8"), nullable, Scheme.OUTROW, limit)}.
+	 * ofString(Charset.forName("UTF-8"), nulls, length)}.
 	 * 
-	 * @param  nullable Must be set to {@code true} if the column allows for
-	 *         {@code null} values, {@code false} if not.
-	 *         Typically, values in columns forbidding the {@code null} value
-	 *         can be persisted more efficiently than values in columns allowing
-	 *         the {@code null} value.
-	 * @param  limit The limit of the String, must be greater than or equal to 1
-	 *         and less than or equal to 4.
-	 *         Read the description of the {@link StringType} interface to
-	 *         learn how the value of this parameter relates to the maximum
-	 *         number of characters.
+	 * @param  nulls Must be set to {@code Nulls.NULLABLE} if the type allows the
+	 *         {@code null} value, {@code Nulls.NO_NULL} if not.
+	 * @param  length The length of the string.
 	 * 
 	 * @return The created column of type String.
-	 * 
-	 * @throws IllegalArgumentException If {@code limit} is less than 1 or
-	 *         greater than 4.
 	 */
-	public static final Column<String> typeString(boolean nullable,
-												int limit) throws IllegalArgumentException {
-		return typeString(Charset.forName("UTF-8"), nullable,
-																			Scheme.OUTROW, limit);
+	public static final Column<String> ofString(Nulls nulls,
+																	OutrowStringLength length) {
+		return ofString(Charset.forName("UTF-8"), nulls, length);
 	}
 	
 	/**
-	 * Creates a new column of type {@linkplain StringType String}.
+	 * Creates a new column of type {@linkplain StringType String} with an
+	 * {@linkplain Scheme#OUTROW outrow storage scheme} and applying the
+	 * specified charset for any byte conversions.
 	 * It is safe to cast {@code column.info().type()} of the returned {@code
-	 * column} to the {@link StringType} interface.
+	 * column} to the {@link StringType} interface or to the {@link SimpleType}
+	 * class.
 	 * 
 	 * @param  charset The {@link Charset} to be used to encode a string value,
 	 *         not allowed to be {@code null}.
-	 * @param  nullable Must be set to {@code true} if the column allows for
-	 *         {@code null} values, {@code false} if not.
-	 *         Typically, values in columns forbidding the {@code null} value
-	 *         can be persisted more efficiently than values in columns allowing
-	 *         the {@code null} value.
-	 * @param  scheme The storage scheme of this type, not allowed to be {@code
-	 *         null}.
-	 * @param  limit The limit of the String, must be greater than or equal to 1.
-	 *         Read the description of the {@link StringType} interface to
-	 *         learn how the value of this parameter relates to the maximum
-	 *         number of characters.
+	 * @param  nulls Must be set to {@code Nulls.NULLABLE} if the type allows the
+	 *         {@code null} value, {@code Nulls.NO_NULL} if not.
+	 * @param  length The length of the string.
 	 * 
 	 * @return The created column of type String.
 	 * 
-	 * @throws NullPointerException If {@code scheme} or {@code charset} are
-	 *         {@code null}.
-	 * @throws IllegalArgumentException If {@code limit} is less than 1 or,
-	 *         provided that {@code scheme} is equal to {@code Scheme.OUTROW},
-	 *         {@code limit} is greater than 4.
-	 *         Furthermore, this exception is thrown if {@code scheme} is equal
-	 *         to {@code Scheme.INROW} and {@code limit} is greater than
-	 *         {@code Integer.MAX_VALUE} - 4.
+	 * @throws NullPointerException If {@code charset} is {@code null}.
 	 */
-	public static final Column<String> typeString(Charset charset,
-										boolean nullable, Scheme scheme, int limit) throws
-										NullPointerException, IllegalArgumentException {
-		return new Column_<>(TypeFactory.fetchString(charset, nullable, scheme,
-																							limit));
+	public static final Column<String> ofString(Charset charset, Nulls nulls,
+								OutrowStringLength length) throws NullPointerException {
+		return new Column_<>(TypeFactory.fetchString(charset, nulls.value(),
+																Scheme.OUTROW, length.limit()));
+	}
+
+	
+	/**
+	 * Creates a new column of type {@linkplain StringType String} with an
+	 * {@linkplain Scheme#INROW inrow storage scheme} and applying the specified
+	 * charset for any byte conversions.
+	 * It is safe to cast {@code column.info().type()} of the returned {@code
+	 * column} to the {@link StringType} interface or to the {@link SimpleType}
+	 * class.
+	 * 
+	 * @param  charset The {@link Charset} to be used to encode a string value,
+	 *         not allowed to be {@code null}.
+	 * @param  nulls Must be set to {@code Nulls.NULLABLE} if the type allows the
+	 *         {@code null} value, {@code Nulls.NO_NULL} if not.
+	 * @param  length The maximum number of characters of the String, must be
+	 *         greater than or equal to 1 and less than or equal to {@code
+	 *         Integer.MAX_VALUE} - 4.
+	 *         Depending on the character set the maximum number of characters
+	 *         may be less than this value.
+	 * 
+	 * @return The created column of type String.
+	 * 
+	 * @throws NullPointerException If {@code charset} is {@code null}.
+	 * @throws IllegalArgumentException If {@code length} is less than 1 or
+	 *         greater than {@code Integer.MAX_VALUE} - 4.
+	 */
+	public static final Column<String> ofString(Charset charset, Nulls nulls,
+				int length) throws NullPointerException, IllegalArgumentException {
+		return new Column_<>(TypeFactory.fetchString(charset, nulls.value(),
+																			Scheme.INROW, length));
 	}
 	
 	/**
@@ -248,6 +245,43 @@ public final class CL {
 	public static final <T> Column<T> create(SimpleType<T> simpleType) throws
 																			NullPointerException {
 		return new Column_<>(TypeFactory.getFromCache(simpleType));
+	}
+	
+	/**
+	 * Creates a new column of type {@linkplain ArrayType array} with an
+	 * {@linkplain Scheme#OUTROW outrow storage scheme} and with elements of the
+	 * specified element type.
+	 * It is safe to cast {@code column.info().type()} of the returned {@code
+	 * column} to the {@link ArrayType} interface.
+	 * <p>
+	 * Consider using the {@link ST} simple column type factory if the element
+	 * type should be a built-in simple column type.
+	 * If you are not using the {@code ST} simple column type factory then note
+	 * that the element type of the returned array column may not be identical
+	 * ({@code ==}) to the specified element type but the type descriptors will
+	 * be equal ({@code String.equals}).
+	 * This is because ACDP internally handles column types with same type
+	 * descriptors as singletons.
+	 * <p>
+	 * Invoking this method has the same effect as invoking {@code
+	 * ofArray(Scheme.OUTROW, maxSize, elementType)}.
+	 * 
+	 * @param  <T> The type of the elements.
+	 *
+	 * @param  maxSize The maximum number of elements in an array value of this
+	 *         array type.
+	 * @param  elementType The type of the elements of the array, not allowed
+	 *         to be {@code null}.
+	 * 
+	 * @return The created array type column.
+	 *
+	 * @throws NullPointerException If {@code elementType} is {@code null}.
+	 * @throws IllegalArgumentException If {@code maxSize} is less than 1.
+	 */
+	public static final <T> Column<T[]> ofArray(int maxSize,
+															SimpleType<T> elementType) throws
+										NullPointerException, IllegalArgumentException {
+		return ofArray(Scheme.OUTROW, maxSize, elementType);
 	}
 	
 	/**
@@ -280,7 +314,7 @@ public final class CL {
 	 *         {@code null}.
 	 * @throws IllegalArgumentException If {@code maxSize} is less than 1.
 	 */
-	public static final <T> Column<T[]> typeArray(Scheme scheme, int maxSize,
+	public static final <T> Column<T[]> ofArray(Scheme scheme, int maxSize,
 															SimpleType<T> elementType) throws
 										NullPointerException, IllegalArgumentException {
 		return new Column_<>(TypeFactory.fetchArrayType(scheme, maxSize,
@@ -295,8 +329,31 @@ public final class CL {
 	 * 
 	 * @return The created column.
 	 */
-	public static final Column<Ref> typeRef() {
+	public static final Column<Ref> ofRef() {
 		return new Column_<>(TypeFactory.fetchRef());
+	}
+	
+	/**
+	 * Creates a new column having an {@linkplain ArrayOfRefType array of
+	 * references column type} with an {@linkplain Scheme#OUTROW outrow storage
+	 * scheme}.
+	 * It is safe to cast {@code column.info().type()} of the returned {@code
+	 * column} to the {@link ArrayOfRefType} interface.
+	 * <p>
+	 * Invoking this method has the same effect as invoking {@code
+	 * ofArrayOfRef(Scheme.OUTROW, maxSize)}.
+	 * 
+	 * @param  maxSize The maximum number of elements in an array value of this
+	 *         array type.
+	 * 
+	 * @return The created column of type array with elements being {@linkplain
+	 *         Ref references}.
+	 *
+	 * @throws IllegalArgumentException If {@code maxSize} is less than 1.
+	 */
+	public static final Column<Ref[]> ofArrayOfRef(int maxSize) throws
+																		IllegalArgumentException {
+		return ofArrayOfRef(Scheme.OUTROW, maxSize);
 	}
 	
 	/**
@@ -316,7 +373,7 @@ public final class CL {
 	 * @throws NullPointerException If {@code scheme} is {@code null}.
 	 * @throws IllegalArgumentException If {@code maxSize} is less than 1.
 	 */
-	public static final Column<Ref[]> typeArrayOfRef(Scheme scheme,
+	public static final Column<Ref[]> ofArrayOfRef(Scheme scheme,
 													int maxSize) throws NullPointerException,
 																		IllegalArgumentException {
 		return new Column_<>(TypeFactory.fetchArrayOfRefType(scheme, maxSize));

@@ -1,12 +1,10 @@
-/*
- * Copyright 2020 by Beat Hoermann
- * Public ECDSA key: 04024D84F56C051C1CD0A27A54F7B73664D20CAD278D84F49261C92A
- * B06B13F104B4109BA9515AC68A8CE73A3720078BB52C22F84092C6DDE2C149EC2F5CC5A62F
- * This code is licensed under "Hoermann License"
- */
 package example;
 
 import java.math.BigInteger;
+
+import static acdp.design.ST.Nulls.*;
+import static acdp.design.ST.OutrowStringLength.*;
+import static acdp.types.Type.Scheme.*;
 
 import acdp.Column;
 import acdp.Ref;
@@ -14,7 +12,7 @@ import acdp.design.CL;
 import acdp.design.CustomTable;
 import acdp.tools.Setup.Setup_Column;
 import acdp.tools.Setup.Setup_Table;
-import acdp.types.Type.Scheme;
+
 
 /**
  * The person table.
@@ -26,20 +24,19 @@ import acdp.types.Type.Scheme;
 public final class PersonTable extends CustomTable {
 	// Must be public if Setup is used.
 	@Setup_Column("Name")
-	public final Column<String> NAME = CL.typeString();
+	public final Column<String> NAME = CL.ofString();
 	@Setup_Column("Vorname")
-	public final Column<String> VORNAME = CL.typeString();
+	public final Column<String> VORNAME = CL.ofString();
 	@Setup_Column("ID")
-	public final Column<BigInteger> ID = CL.create(new BigIntegerType(
-																						false, 20));
+	public final Column<BigInteger> ID = CL.create(new BigIntegerType(20));
 	@Setup_Column("Hat_Kinder")
-	public final Column<Boolean> HAT_KINDER = CL.typeBoolean(false);
+	public final Column<Boolean> HAT_KINDER = CL.ofBoolean(NO_NULL);
 	@Setup_Column("Anzahl_Kinder")
-	public final Column<Byte> ANZAHL_KINDER = CL.typeByte(true);
+	public final Column<Byte> ANZAHL_KINDER = CL.ofByte(NULLABLE);
 	@Setup_Column(value = "Kinder", refdTable = "Person")
-	public final Column<Ref[]> KINDER = CL.typeArrayOfRef(Scheme.OUTROW, 20);
+	public final Column<Ref[]> KINDER = CL.ofArrayOfRef(OUTROW, 20);
 	@Setup_Column("Bemerkung")
-	public final Column<String> BEMERKUNG = CL.typeString(true, 2);
+	public final Column<String> BEMERKUNG = CL.ofString(NULLABLE, MEDIUM);
 	
 	/**
 	 * Do not create instances of this class!

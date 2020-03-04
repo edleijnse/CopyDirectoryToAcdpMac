@@ -201,7 +201,7 @@ import acdp.internal.Database_;
  *    The integrity of the database may be harmed if a running service operation
  *    on this level throws an exception due to any reason or if a system crash
  *    occurs.
- *    It may therefore be a good idea to {@linkplain acdp.Database#zip
+ *    It may therefore be a good idea to {@linkplain Database#zip
  *    backup the database} before executing a service operation on this level.
  *    <p>
  *    Complete listing: All methods declared in the {@link acdp.tools.Refactor}

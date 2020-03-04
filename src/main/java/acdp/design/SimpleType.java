@@ -27,9 +27,8 @@ import acdp.misc.Utils;
  * <p>
  * Users that do not implement a custom column type can ignore this class.
  * This class must be part of the API because it appears in the signatures of
- * the {@link CL#typeArray} and {@link CL#create} methods and because
- * implementers of custom column types need to provide a concrete subclass of
- * this class.
+ * the {@link CL#ofArray} and {@link CL#create} methods and because implementers
+ * of custom column types need to provide a concrete subclass of this class.
  * However, even implementers of a custom column type can vastly ignore all
  * methods declared with a {@code public} access modifier and focus on the
  * instance methods declared with a {@code protected} access modifier.

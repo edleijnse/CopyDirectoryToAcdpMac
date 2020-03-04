@@ -22,6 +22,7 @@ import acdp.exceptions.ImplementationRestrictionException;
 import acdp.exceptions.MaximumException;
 import acdp.internal.Refactor_;
 import acdp.internal.Refactor_.Names_;
+import acdp.tools.Settings;
 import acdp.types.Type;
 
 /**
@@ -121,7 +122,7 @@ public final class Refactor {
 	 * referenced then the {@code nobsRefCount} field is added to the table
 	 * layouts of these newly referenced tables and the tables are refactored
 	 * accordingly.
-	 * As described in the {@linkplain acdp.tools.Setup Setup Tool}, you may
+	 * As described in the {@linkplain Setup Setup Tool}, you may
 	 * want to review the new fields in the database layout and customize them
 	 * to suit your personal needs.
 	 * <p>
@@ -248,7 +249,7 @@ public final class Refactor {
 	 * Furthermore, if the column references a table that is not yet referenced,
 	 * then the {@code nobsRefCount} field is added to the layout of the newly
 	 * referenced table and the table is refactored accordingly.
-	 * As described in the {@linkplain acdp.tools.Setup Setup Tool}, you may
+	 * As described in the {@linkplain Setup Setup Tool}, you may
 	 * want to review these new fields in the database layout and customize them
 	 * to suit your personal needs.
 	 * (Use the {@link #nobsOutrowPtr} and {@link #nobsRefCount} methods if you
@@ -456,7 +457,7 @@ public final class Refactor {
 	 * its values in the VL file space yet then this method creates the VL data
 	 * file and adds the fields {@code vlDataFile} and {@code nobsOutrowPtr} to
 	 * the layout of the table.
-	 * As described in the {@linkplain acdp.tools.Setup Setup Tool}, you may
+	 * As described in the {@linkplain Setup Setup Tool}, you may
 	 * want to review these new fields in the database layout and customize them
 	 * to suit your personal needs.
 	 * (Use the {@link #nobsOutrowPtr} method if you want to reduce the value of
@@ -569,7 +570,7 @@ public final class Refactor {
 	 * table to the specified value.
 	 * (See the section "Explanation of the {@code nobsRowRef}, {@code
 	 * nobsOutrowPtr} and {@code nobsRefCount} Settings" in the description of
-	 * the {@linkplain acdp.tools.Setup Setup Tool} to learn about this
+	 * the {@linkplain Setup Setup Tool} to learn about this
 	 * property.)
 	 * <p>
 	 * The amount of unused VL file space may significantly increase in tables
@@ -632,7 +633,7 @@ public final class Refactor {
 	 * table to the specified value.
 	 * (See the section "Explanation of the {@code nobsRowRef}, {@code
 	 * nobsOutrowPtr} and {@code nobsRefCount} Setinngs" in the description of
-	 * the {@linkplain acdp.tools.Setup Setup Tool} to learn about this
+	 * the {@linkplain Setup Setup Tool} to learn about this
 	 * property.)
 	 * <p>
 	 * This method fails if the database is not a WR database or if the database
@@ -684,7 +685,7 @@ public final class Refactor {
 	 * table to the specified value.
 	 * (See the section "Explanation of the {@code nobsRowRef}, {@code
 	 * nobsOutrowPtr} and {@code nobsRefCount} Settings" in the description of
-	 * the {@linkplain acdp.tools.Setup Setup Tool} to learn about this
+	 * the {@linkplain Setup Setup Tool} to learn about this
 	 * property.)
 	 * <p>
 	 * This method fails if the database is not a WR database or if the database

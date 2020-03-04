@@ -15,6 +15,7 @@ import java.nio.file.Paths;
 
 import acdp.Database;
 import acdp.Ref;
+import acdp.tools.Refactor;
 import acdp.design.CustomDatabase;
 import acdp.design.CustomTable;
 import acdp.design.ICipherFactory;

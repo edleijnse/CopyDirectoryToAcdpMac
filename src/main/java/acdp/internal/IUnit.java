@@ -37,7 +37,7 @@ public interface IUnit {
 	 *         able to start doing its job.
 	 */
 	void record(FileIO file, long pos, byte[] data, int offset,
-				int length) throws IndexOutOfBoundsException, UnitBrokenException;
+                int length) throws IndexOutOfBoundsException, UnitBrokenException;
 	
 	/**
 	 * Writes the specified before data located at the specified position within

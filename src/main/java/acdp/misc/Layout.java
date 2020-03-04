@@ -368,7 +368,7 @@ public final class Layout {
 		file = layout.file;
 		indent = layout.indent;
 		map = new HashMap<>(layout.map);
-		for (java.util.Map.Entry<String, Value> entry : map.entrySet()) {
+		for (Map.Entry<String, Value> entry : map.entrySet()) {
 			final Value value = entry.getValue();
 			final Object valueObj = value.value;
 			

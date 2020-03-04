@@ -53,7 +53,7 @@ final class ColUpdater extends ColProcessor {
 		 * 
 		 * @throws FileIOException If an I/O error occurs.
 		 */
-		Object getValue(WRColInfo ci, long bitmap,Bag bag) throws FileIOException;
+		Object getValue(WRColInfo ci, long bitmap, Bag bag) throws FileIOException;
 	}
 	
 	private final IUnit unit;

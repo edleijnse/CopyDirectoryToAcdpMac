@@ -32,7 +32,7 @@ import acdp.exceptions.CryptoException;
 public final class CryptoProvider {
 	/**
 	 * Defines a node.
-	 * Nodes are used by a {@linkplain CryptoProvider.CipherPool cipher pool}.
+	 * Nodes are used by a {@linkplain CipherPool cipher pool}.
 	 * 
 	 * @author Beat Hoermann
 	 */
@@ -73,9 +73,9 @@ public final class CryptoProvider {
 		 * the {@link #takeOut} method then the "cipher" node becomes an "empty"
 		 * node.
 		 * The {@code cur} pointer points to the one and only one "empty" node
-		 * such that all of its {@linkplain CryptoProvider.Node#previous previous
+		 * such that all of its {@linkplain Node#previous previous
 		 * nodes}, if any, are "empty" nodes and all of its {@linkplain
-		 * CryptoProvider.Node#next next nodes}, if any, are "cipher" nodes.
+		 * Node#next next nodes}, if any, are "cipher" nodes.
 		 */
 		private Node cur;
 		

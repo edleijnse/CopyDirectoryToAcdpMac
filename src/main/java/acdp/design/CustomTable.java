@@ -47,8 +47,8 @@ import acdp.tools.Setup;
  * <pre>
  * final {@literal Column<String>} MY_STRING_COLUMN = {@link CL}.typeString();
  * final {@literal Column<String>} MY_STRING_ARRAY_COLUMN =
- *                          CL.typeArray(Scheme.OUTROW, 58, {@link ST}.beString());
- * final {@literal Column<Ref>} MY_REF_COLUMN = CL.typeRef()</pre>
+ *                          CL.ofArray(Scheme.OUTROW, 58, {@link ST}.beString());
+ * final {@literal Column<Ref>} MY_REF_COLUMN = CL.ofRef()</pre>
  * 
  * In addition, the table must provide the <em>table definition</em> at the
  * time of object creation by invoking the {@link #initialize(Column...)
@@ -70,17 +70,41 @@ import acdp.tools.Setup;
  * {@literal @Setup_Table({ "My String Column, My String Array Column, My Ref Column" })}
  * public MyTable {
  *    {@literal @Setup_Column("My String Column")}
- *    public final {@literal Column<String>} MY_STRING_COLUMN = CL.typeString();
+ *    public final {@literal Column<String>} MY_STRING_COLUMN = CL.ofString();
  *    {@literal @Setup_Column("My String Array Column")}
  *    public final {@literal Column<String>} MY_STRING_ARRAY_COLUMN =
- *                          CL.typeArray(Scheme.OUTROW, 58, ST.beString());
+ *                          CL.ofArray(Scheme.OUTROW, 58, ST.beString());
  *    {@literal @Setup_Column(value = "My Ref Column", refdTable = "My Referenced Table")}
- *    public final {@literal Column<Ref>} MY_REF_COLUMN = CL.typeRef()
+ *    public final {@literal Column<Ref>} MY_REF_COLUMN = CL.ofRef()
  *    
  *    public MyTable() {
  *    	initialize(MY_STRING_COLUMN, MY_STRING_ARRAY_COLUMN, MY_REF_COLUMN);
  *    }
  * }</pre>
+ * <p>
+ * Almost all methods of this class are declared with a {@code protected} access
+ * level modifier.
+ * At first glance, this seems cumbersome, since it requires boilerplate code
+ * to make a particular method publicly available.
+ * For example, to make the {@link #insert} method publicly available, it would
+ * have to be re-declared in your table class extending this class as follows:
+ * 
+ * <pre>
+ * {@literal @Override}
+ * public Ref insert(Object... values) throws
+ *                      UnsupportedOperationException, NullPointerException,
+ *                      IllegalArgumentException, MaximumException,
+ *                      CryptoException, ShutdownException,
+ *                      ACDPException, UnitBrokenException, IOFailureException {
+ *    return super.insert(values);
+ * }</pre>
+ * 
+ * On the other hand, you may wish that certain functionality is explicitly not
+ * publicly available or only in a modified form.
+ * For example, you may want clients of your table class not to be able to
+ * invoke the {@code insert} method at all or only in a form that prevents empty
+ * strings from being inserted or to make an insert method publicly available
+ * only that strongly types the values to be inserted.
  *
  * @author Beat Hoermann
  */

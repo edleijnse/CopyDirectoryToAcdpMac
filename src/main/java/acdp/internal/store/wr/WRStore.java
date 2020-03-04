@@ -1651,8 +1651,8 @@ public final class WRStore extends Store {
 	 * Note that the format of the FL data file may be corrupted if this method
 	 * throws a {@code FileIOException}.
 	 * <p>
-	 * {@linkplain WRStore.GlobalBuffer GB1},
-	 * {@linkplain WRStore.GlobalBuffer GB2}.
+	 * {@linkplain GlobalBuffer GB1},
+	 * {@linkplain GlobalBuffer GB2}.
 	 * 
 	 * @throws MissingEntryException If the store has no reference counter.
 	 * @throws FileIOException If an I/O error occurs.
@@ -1684,8 +1684,8 @@ public final class WRStore extends Store {
 	 * Note also that the format of the FL data file may be corrupted if this
 	 * method throws a {@code FileIOException}.
 	 * <p>
-	 * {@linkplain WRStore.GlobalBuffer GB1},
-	 * {@linkplain WRStore.GlobalBuffer GB2}.
+	 * {@linkplain GlobalBuffer GB1},
+	 * {@linkplain GlobalBuffer GB2}.
 	 * 
 	 * @throws IllegalArgumentException If this store already has a reference
 	 *         counter.
@@ -1751,9 +1751,9 @@ public final class WRStore extends Store {
 	 * Note also that the format of the FL data file may be corrupted if this
 	 * method throws an exception.
 	 * <p>
-	 * {@linkplain WRStore.GlobalBuffer GB1},
-	 * {@linkplain WRStore.GlobalBuffer GB2},
-	 * {@linkplain WRStore.GlobalBuffer GB3}.
+	 * {@linkplain GlobalBuffer GB1},
+	 * {@linkplain GlobalBuffer GB2},
+	 * {@linkplain GlobalBuffer GB3}.
 	 * 
 	 * @param  store The WR store, not allowed to be {@code null}.
 	 * @param  col The column to be inserted, not allowed to be {@code null}.
@@ -1761,7 +1761,7 @@ public final class WRStore extends Store {
 	 *         to be inserted, must satisfy 0 &le; {@code index} &le; {@code n},
 	 *         where {@code n} denotes the number of columns in the table.
 	 * @param  initialValue The initial value, must be {@linkplain
-	 *         acdp.types.Type#isCompatible compatible} with the type of the
+	 *         Type#isCompatible compatible} with the type of the
 	 *         column.
 	 *         This value must be {@code null} if the column is a reference
 	 *         column.
@@ -1865,9 +1865,9 @@ public final class WRStore extends Store {
 	 * Note also that the format of the FL data file may be corrupted if this
 	 * method throws an exception.
 	 * <p>
-	 * {@linkplain WRStore.GlobalBuffer GB1},
-	 * {@linkplain WRStore.GlobalBuffer GB2},
-	 * {@linkplain WRStore.GlobalBuffer GB3}.
+	 * {@linkplain GlobalBuffer GB1},
+	 * {@linkplain GlobalBuffer GB2},
+	 * {@linkplain GlobalBuffer GB3}.
 	 * 
 	 * @param  col The column to be removed, not allowed to be {@code null}.
 	 *         The column must be a column of the store's table.
@@ -1944,9 +1944,9 @@ public final class WRStore extends Store {
 	 * throws an exception, however, this may be an exception of a type not
 	 * listed below.
 	 * <p>
-	 * {@linkplain WRStore.GlobalBuffer GB1},
-	 * {@linkplain WRStore.GlobalBuffer GB2},
-	 * {@linkplain WRStore.GlobalBuffer GB3}.
+	 * {@linkplain GlobalBuffer GB1},
+	 * {@linkplain GlobalBuffer GB2},
+	 * {@linkplain GlobalBuffer GB3}.
 	 * 
 	 * @param  <T> The type of the column's values.
 	 * 
@@ -2062,9 +2062,9 @@ public final class WRStore extends Store {
 	 * Note also that the format of the FL data file may be corrupted if this
 	 * method throws an exception.
 	 * <p>
-	 * {@linkplain WRStore.GlobalBuffer GB1},
-	 * {@linkplain WRStore.GlobalBuffer GB2},
-	 * {@linkplain WRStore.GlobalBuffer GB3}.
+	 * {@linkplain GlobalBuffer GB1},
+	 * {@linkplain GlobalBuffer GB2},
+	 * {@linkplain GlobalBuffer GB3}.
 	 * 
 	 * @param  refdStore The store referenced by at least one of the columns
 	 *         of this store, not allowed to be {@code null}.
@@ -2165,7 +2165,7 @@ public final class WRStore extends Store {
 	 * Note also that the format of the FL data file may be corrupted if this
 	 * method throws an exception.
 	 * <p>
-	 * {@linkplain WRStore.GlobalBuffer GB1}.
+	 * {@linkplain GlobalBuffer GB1}.
 	 * 
 	 * @param  newNobsOutrowPtr The new value of the {@code nobsOutrowPtr}
 	 *         parameter, must pass the {@code checkNobsOutrowPtr} method.
@@ -2261,7 +2261,7 @@ public final class WRStore extends Store {
 	 * Note also that the format of the FL data file may be corrupted if this
 	 * method throws an exception.
 	 * <p>
-	 * {@linkplain WRStore.GlobalBuffer GB1}.
+	 * {@linkplain GlobalBuffer GB1}.
 	 * 
 	 * @param  newNobsRefCount The new value of the {@code nobsRefCount}
 	 *         parameter, must pass the {@code checkNobsRefCount} method.
@@ -2301,7 +2301,7 @@ public final class WRStore extends Store {
 	 * Invoke this method within a session created solely for the purpose of
 	 * verifying the integrity of the table data.
 	 * <p>
-	 * {@linkplain WRStore.GlobalBuffer GB1}.
+	 * {@linkplain GlobalBuffer GB1}.
 	 * 
 	 * @param  fix The information whether an attempt should be made to fix any
 	 *         detected violations of the integrity of the table data.

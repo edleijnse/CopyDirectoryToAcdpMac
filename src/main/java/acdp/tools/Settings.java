@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 
 import acdp.Database;
+import acdp.tools.Refactor;
 import acdp.design.CustomDatabase;
 import acdp.design.CustomTable;
 import acdp.exceptions.IOFailureException;

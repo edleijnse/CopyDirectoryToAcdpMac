@@ -143,7 +143,7 @@ public abstract class Store {
 	 * 	<li>The number of values is equal to the number of columns of the
 	 *        table.</li>
 	 *    <li>If v<sub>i</sub> denotes the i-th value then v<sub>i</sub> is
-	 *        {@linkplain acdp.types.Type#isCompatible compatible}
+	 *        {@linkplain Type#isCompatible compatible}
 	 *        with the type of the i-th column of this table.</li>
 	 * </ul>
 	 * <p>
