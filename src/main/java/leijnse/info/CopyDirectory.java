@@ -1,7 +1,5 @@
 package leijnse.info;
 
-import acdp.misc.ACDP;
-
 import java.io.File;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -9,6 +7,7 @@ import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class CopyDirectory {
     String subscriptionKey;
@@ -99,10 +98,14 @@ public class CopyDirectory {
     public void addVisionTagsToFiles(String startsWithDirectory, String tempDirectory) {
         try {
 
-
             System.out.println("addVisionTagsToFiles start: " + startsWithDirectory) ;
 
-            final int[] ii = {0};
+            AtomicReference<PictureMetaData> pictureMetaData = new AtomicReference<>(new PictureMetaData());
+
+            ExtractPictureMetaData extractPictureMetaData = new ExtractPictureMetaData();
+
+            ExtractPictureContentData extract = new ExtractPictureContentData();
+
             Files.walk(Paths.get(startsWithDirectory))
                     .filter(p -> {
                         return ((p.toString().toLowerCase().endsWith(".cr2")) ||
@@ -113,11 +116,11 @@ public class CopyDirectory {
                     .forEach(item -> {
                         File file = item.toFile();
                         if (file.isFile()) {
-                            PictureMetaData pictureMetaData = new PictureMetaData();
-                            ExtractPictureMetaData extractPictureMetaData = new ExtractPictureMetaData();
+
+
                             try {
-                                pictureMetaData = extractPictureMetaData.getPictureMetaDataExif(file);
-                                ExtractPictureContentData extract = new ExtractPictureContentData(startsWithDirectory,"");
+                                pictureMetaData.set(extractPictureMetaData.getPictureMetaDataExif(file));
+
                                 String mySubscriptionKey = this.getSubscriptionKey();
                                 extract.setSubstringKey(mySubscriptionKey);
                                 File fileCompressed = extract.compressJpg(file);
@@ -151,8 +154,8 @@ public class CopyDirectory {
                                 e.printStackTrace();
                             }
                             String myIptcKeywords = "";
-                            if (pictureMetaData.getIPTC_KEYWORDS().isPresent()){
-                                myIptcKeywords = pictureMetaData.getIPTC_KEYWORDS().get();
+                            if (pictureMetaData.get().getIPTC_KEYWORDS().isPresent()){
+                                myIptcKeywords = pictureMetaData.get().getIPTC_KEYWORDS().get();
                             }
 
                         }
