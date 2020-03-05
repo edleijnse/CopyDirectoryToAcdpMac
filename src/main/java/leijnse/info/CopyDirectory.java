@@ -99,6 +99,16 @@ public class CopyDirectory {
         try {
 
             System.out.println("addVisionTagsToFiles start: " + startsWithDirectory) ;
+            AcdpAccessor acdpAccessor = new AcdpAccessor();
+            String newRootPreFix = "/newRoot";
+            String newRootDirectory = tempDirectory + newRootPreFix;
+            File newRootDirectoryToPurge = new File(newRootDirectory);
+            acdpAccessor.purgeDirectory(newRootDirectoryToPurge);
+            Path sourcePath = Paths.get(startsWithDirectory);
+            Path destinationPath = Paths.get(newRootDirectory);
+            acdpAccessor.copyFolder(sourcePath, destinationPath);
+
+
 
             AtomicReference<PictureMetaData> pictureMetaData = new AtomicReference<>(new PictureMetaData());
 
@@ -106,7 +116,7 @@ public class CopyDirectory {
 
             ExtractPictureContentData extract = new ExtractPictureContentData();
 
-            Files.walk(Paths.get(startsWithDirectory))
+            Files.walk(Paths.get(newRootDirectory))
                     .filter(p -> {
                         return ((p.toString().toLowerCase().endsWith(".cr2")) ||
                                 (p.toString().toLowerCase().endsWith(".cr3")) ||
@@ -144,7 +154,7 @@ public class CopyDirectory {
                                         System.out.println("doExecute: " + doExecute);
                                         myCommand.exec( doExecute );
                                     }
-                                    copyFile(newDest, file.getAbsolutePath());
+                                    copyFile(newDest, file.getAbsolutePath().replaceAll(newRootDirectory, startsWithDirectory));
 
                                 } catch (Exception e) {
                                     e.printStackTrace();
@@ -162,7 +172,7 @@ public class CopyDirectory {
                     });
             File directoryToPurge = new File(startsWithDirectory);
             purgeDirectoryPostfixOriginal(directoryToPurge);
-            AcdpAccessor acdpAccessor = new AcdpAccessor();
+
             File tempDirectoryToPurge = new File(tempDirectory);
             acdpAccessor.purgeDirectory(tempDirectoryToPurge);
 

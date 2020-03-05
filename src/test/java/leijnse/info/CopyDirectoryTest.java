@@ -40,8 +40,7 @@ public class CopyDirectoryTest {
 
         testee.setSubscriptionKey(mySubscriptionKey);
         // testee.addVisionTagsToFiles("src/data/copyDirectoryTest/acdpTest/AesthetikDesZerfalls");
-        // testee.addVisionTagsToFiles("/Volumes/MyDrive01/acdp/experiment", "/Volumes/MyDrive01/temp" +
-        // "");
+        // testee.addVisionTagsToFiles("/Volumes/MyDrive01/acdp/experiment", "/Volumes/MyDrive01/temp" + "");
 
         Instant finish = Instant.now();
         long timeElapsed = Duration.between(start, finish).toMillis();
