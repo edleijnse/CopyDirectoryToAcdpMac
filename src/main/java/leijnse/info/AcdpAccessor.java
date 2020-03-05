@@ -262,10 +262,14 @@ public class AcdpAccessor {
     }
 
     public void purgeDirectory(File dir) {
-        for (File file : dir.listFiles()) {
-            if (file.isDirectory())
-                purgeDirectory(file);
-            file.delete();
+        try {
+            for (File file : dir.listFiles()) {
+                if (file.isDirectory())
+                    purgeDirectory(file);
+                file.delete();
+
+            }
+        } catch (Exception e) {
         }
     }
 
