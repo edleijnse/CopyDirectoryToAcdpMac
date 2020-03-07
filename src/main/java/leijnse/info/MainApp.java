@@ -31,7 +31,7 @@ public class MainApp {
         // XStream xStream = new XStream();
         // System.out.println(xStream.toXML(imageWithSomeKeywords));
         System.out.println("-----------------------------------------------------------------------------------------------------");
-        List<ImageRow> imageWithAllKeywords = acdpAccessor.selectFromImageTable(false, "/Volumes/MyDrive01/acdp/acdpImageAlbums/layout", "-","-", BigInteger.valueOf(0),"Locarno,Valentina");
+        List<ImageRow> imageWithAllKeywords = acdpAccessor.selectFromImageTable(false, "/Volumes/MyDrive01/acdp/acdpImageAlbums/layout", "-","-","Locarno,Valentina");
         // System.out.println(xStream.toXML(imageWithAllKeywords));
         System.out.println("-----------------------------------------------------------------------------------------------------");
 

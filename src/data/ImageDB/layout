@@ -1,0 +1,26 @@
+name = ImageDB
+version = 1.0
+consistencyNumber = 0
+forceWriteCommit = off
+recFile = rec
+tables
+	Image
+		columns[]
+			.
+				name = Directory
+				typeDesc = s!o2
+			.
+				name = File
+				typeDesc = s!o1
+			.
+				name = IptcKeywords
+				typeDesc = zo100s!o1
+			.
+				name = Image
+				typeDesc = Image!o4
+				typeFactoryClassName = com.triangulum.acdp.debugging.ImageType
+		store
+			nobsRowRef = 3
+			nobsOutrowPtr = 8
+			flDataFile = Image_fld
+			vlDataFile = Image_vld

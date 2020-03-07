@@ -78,11 +78,14 @@ public class CopyDirectory {
                             sourceFileAbsolutePath = file.getAbsolutePath();
                             String sourceFileName = file.getName();
                             String sourceParentName = file.getParent();
+
                             try {
                                 ii[0]++;
                                 System.out.println("absolute: " + sourceFileAbsolutePath + ", parent: " + sourceParentName  +", filename: " + sourceFileName);
                                 System.out.println("keywords: " + myIptcKeywords);
-                                acdpAccessor.writeRowToImageTable(layOut,sourceParentName,sourceFileName, BigInteger.valueOf(ii[0]),myIptcKeywords);
+                                String[] myKeywords = myIptcKeywords.split(".");
+                                byte[] imageByteArray = Files.readAllBytes(Paths.get(file.getAbsolutePath()));
+                                acdpAccessor.writeRowToImageTable(layOut,sourceParentName,sourceFileName,myKeywords,imageByteArray);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -241,8 +244,9 @@ public class CopyDirectory {
                             System.out.println("myIpctKeyWords: " + myIptcKeyWords);
                             try {
                                 ii[0]++;
+                                byte[] imageByteArray = Files.readAllBytes(Paths.get(file.getAbsolutePath()));
                                 System.out.println("Keywords: "+ myIptcKeyWords + ", absolute: " + sourceFileAbsolutePath + ", parent: " + sourceParentName  +", filename: " + sourceFileName);
-                                acdpAccessor.writeRowToImageTable(layOut,sourceParentName,sourceFileName, BigInteger.valueOf(ii[0]),myIptcKeyWords);
+                                acdpAccessor.writeRowToImageTable(layOut,sourceParentName,sourceFileName,myIptcKeyWords.split("."),imageByteArray);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }

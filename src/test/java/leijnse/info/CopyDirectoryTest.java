@@ -13,19 +13,24 @@ import java.time.Instant;
 import static org.junit.Assert.*;
 
 public class CopyDirectoryTest {
+    String DIR_EMPTEE = "src/data/ImageDB";
+    String DIR_RUN = "src/data/ImageDBRun";
+    String LAYOUT_EMPTEE = "src/data/ImageDB/layout";
+    String LAYOUT_RUN = "src/data/ImageDBRun/layout";
+
     CopyDirectory testee = new CopyDirectory();
 
     @Before
     public void setUp() throws Exception {
         AcdpAccessor acdpPrepare = new AcdpAccessor();
-        acdpPrepare.copyLayout("src/data/acdpImage", "src/data/acdpRun");
+        acdpPrepare.copyLayout(DIR_EMPTEE, DIR_RUN);
     }
 
     @Test
     public void copyFilesToACDPTest() {
         Instant start = Instant.now();
         // testee.copyFilesToACDP("/media/psf/MyDrive01/BilderImport/Annalis/Bilder nachbearbeitet", "/media/psf/MyDrive01/BilderImport/Annalis/BilderExportBearbeitet3");
-        testee.copyFilesToACDP("src/data/copyDirectoryTest", "src/data/acdpRun/layout");
+        testee.copyFilesToACDP("src/data/copyDirectoryTest", LAYOUT_RUN);
         Instant finish = Instant.now();
         long timeElapsed = Duration.between(start, finish).toMillis();
         System.out.println("Duration (millisec): " + timeElapsed );

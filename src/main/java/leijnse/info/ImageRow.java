@@ -4,7 +4,16 @@ public class ImageRow {
     String directory;
     String file;
     String id;
-    String iptcKeywords;
+    String[] iptcKeywords;
+    byte[] image;
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
 
     public String getDirectory() {
         return directory;
@@ -30,11 +39,11 @@ public class ImageRow {
         this.id = id;
     }
 
-    public String getIptcKeywords() {
+    public String[] getIptcKeywords() {
         return iptcKeywords;
     }
 
-    public void setIptcKeywords(String iptcKeywords) {
+    public void setIptcKeywords(String[] iptcKeywords) {
         this.iptcKeywords = iptcKeywords;
     }
 }
