@@ -1,6 +1,7 @@
 package leijnse.info;
 
 import acdp.Row;
+import com.thoughtworks.xstream.XStream;
 // import com.thoughtworks.xstream.XStream;
 
 import java.math.BigInteger;
@@ -24,15 +25,15 @@ public class MainApp {
         // copyDirectory.copyFilesToACDP("/media/psf/MyDrive01/Annalis Bilder/BilderExportBearbeitet/Annalis", "/media/psf/MyDrive01/acdp/acdpImage/layout");
 
         // copyDirectory.copyFilesDirectoryNameToACDP("/Volumes/MyDrive01/acdp/allAlbums", "/Volumes/MyDrive01/acdp/acdpImageAlbums/layout");
-        copyDirectory.copyFilesToACDP("/Volumes/MyDrive01/acdp/allAlbums/PICZ/Amber 20180815", "/Volumes/MyDrive01/acdp/acdpImageAlbums/layout");
+        copyDirectory.copyFilesToACDP("/Volumes/MyDrive01/acdp/experiment/Blumen", "/Volumes/MyDrive01/acdp/ImageDatabase/run/ImageDBRun/layout");
         AcdpAccessor acdpAccessor = new AcdpAccessor();
         // acdpAccessor.readAllRowsFromImageTable("/media/psf/MyDrive01/acdp/acdpImageDirectories/layout");
         // List<ImageRow> imageWithSomeKeywords = acdpAccessor.selectFromImageTable(false,"/media/psf/MyDrive01/acdp/acdpImageDirectories/layout", "-","-", BigInteger.valueOf(0),"Hochzeit");
-        // XStream xStream = new XStream();
+        XStream xStream = new XStream();
         // System.out.println(xStream.toXML(imageWithSomeKeywords));
         System.out.println("-----------------------------------------------------------------------------------------------------");
-        List<ImageRow> imageWithAllKeywords = acdpAccessor.selectFromImageTable(false, "/Volumes/MyDrive01/acdp/acdpImageAlbums/layout", "-","-","Locarno,Valentina");
-        // System.out.println(xStream.toXML(imageWithAllKeywords));
+        List<ImageRow> imageWithAllKeywords = acdpAccessor.selectFromImageTable(false, "/Volumes/MyDrive01/acdp/ImageDatabase/run/ImageDBRun/layout", "-","-","little,girl");
+        System.out.println(xStream.toXML(imageWithAllKeywords));
         System.out.println("-----------------------------------------------------------------------------------------------------");
 
     }

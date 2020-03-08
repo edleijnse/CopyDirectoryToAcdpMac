@@ -39,6 +39,10 @@ public class AcdpAccessor {
     public void writeRowToImageTable(String myLayout, String myDirectory, String myFile, String[] myIPTCKeywords, byte[] myImage) {
         Path myPath = Paths.get(myLayout);
 
+        System.out.println("myIPTCKeywords: ");
+        for (String kw: myIPTCKeywords){
+            System.out.println ("kw: " + kw);
+        }
         // Insert an image into the database.
         try (ImageDB db = new ImageDB(Paths.get(myLayout), -1, false)) {
             db.imageTable.insert(myDirectory, myFile, myIPTCKeywords, myImage);
@@ -104,9 +108,11 @@ public class AcdpAccessor {
                 else {
                     final Set<String> kwSet = new HashSet<>();
 
+                    System.out.println("IPTTCKEYWORDS:" + row.get(t.IPTCKEYWORDS).toString());
                     for (String kw : row.get(t.IPTCKEYWORDS)) {
                         if (kw != null && !kw.isEmpty()) {
                             kwSet.add(kw);
+                            System.out.println("kw:" + kw);
                         }
                     }
 

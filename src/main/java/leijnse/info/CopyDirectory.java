@@ -7,6 +7,9 @@ import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class CopyDirectory {
@@ -83,7 +86,13 @@ public class CopyDirectory {
                                 ii[0]++;
                                 System.out.println("absolute: " + sourceFileAbsolutePath + ", parent: " + sourceParentName  +", filename: " + sourceFileName);
                                 System.out.println("keywords: " + myIptcKeywords);
-                                String[] myKeywords = myIptcKeywords.split(".");
+                                myIptcKeywords = myIptcKeywords.replaceAll("[^a-zA-Z0-9]", ".");
+                                myIptcKeywords = myIptcKeywords.replaceAll("\\.\\.\\.", "\\.");
+                                System.out.println("myIptcKeywords: " + myIptcKeywords);
+
+
+                                String[]  myKeywords = myIptcKeywords.split("\\.");
+
                                 byte[] imageByteArray = Files.readAllBytes(Paths.get(file.getAbsolutePath()));
                                 acdpAccessor.writeRowToImageTable(layOut,sourceParentName,sourceFileName,myKeywords,imageByteArray);
                             } catch (Exception e) {
