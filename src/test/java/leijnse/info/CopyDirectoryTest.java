@@ -41,9 +41,9 @@ public class CopyDirectoryTest {
     public void addVisionTagsToFilesTest() throws IOException {
         Instant start = Instant.now();
 
-        String mySubscriptionKey = new String(Files.readAllBytes(Paths.get("/Users/edleijnse/OneDrive/Finanzen/Lizensen/Microsoft/keys/subscriptionKey1")));
+        // String mySubscriptionKey = new String(Files.readAllBytes(Paths.get("/Users/edleijnse/OneDrive/Finanzen/Lizensen/Microsoft/keys/subscriptionKey1")));
 
-        testee.setSubscriptionKey(mySubscriptionKey);
+        // testee.setSubscriptionKey(mySubscriptionKey);
         // testee.addVisionTagsToFiles("src/data/copyDirectoryTest/acdpTest/AesthetikDesZerfalls");
         // testee.addVisionTagsToFiles("/Volumes/MyDrive01/acdp/experiment", "/Volumes/MyDrive01/temp" + "");
 
